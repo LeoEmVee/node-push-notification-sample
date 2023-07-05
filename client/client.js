@@ -1,5 +1,6 @@
 import {environment} from './environments.js';
 
+// Please note: environments.js file is .gitignored here. You need to create yourself!
 const publicVapidKey = environment.publicVapidKey;
 
 // Check for service worker
@@ -11,9 +12,10 @@ if ("serviceWorker" in navigator) {
 async function send() {
     // Register service worker
     console.log("Registering service worker...");
-    const register = await navigator.serviceWorker.register("/worker.js", {
+    await navigator.serviceWorker.register("/worker.js", {
         scope: "/"
     });
+    const register = await navigator.serviceWorker.ready;
     console.log("Service worker registered...");
     // Register push
     console.log("Registering push...");
