@@ -22,7 +22,7 @@ app.post('/subscribe', (req, res) => {
     // Send 201 - resource created
     res.status(201).json({});
     // Create payload
-    const payload = JSON.stringify({ title: 'Push test'});
+    const payload = JSON.stringify({title: 'Push test'});
     // Pass object into sendNotification
     webpush.sendNotification(subscription, payload).catch(err => console.error(err));
 });
@@ -32,5 +32,3 @@ const port = process.env.API_PORT;
 app.listen(port, () => {
     console.log(`Server started on port ${port}`);
 });
-
-

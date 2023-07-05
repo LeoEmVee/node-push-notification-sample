@@ -1,5 +1,6 @@
 #ENVIRONMENT
 .env
+environments.js
 
 #NODE-MODULES
 node_modules
