@@ -9,20 +9,20 @@ if ("serviceWorker" in navigator) {
 
 // Register SW, Register Push, Send Push
 async function send() {
-    // Register Service Worker
+    // Register service worker
     console.log("Registering service worker...");
     const register = await navigator.serviceWorker.register("/worker.js", {
         scope: "/"
     });
-    console.log("Service Worker Registered...");
-    // Register Push
-    console.log("Registering Push...");
+    console.log("Service worker registered...");
+    // Register push
+    console.log("Registering push...");
     const subscription = await register.pushManager.subscribe({
         userVisibleOnly: true,
         applicationServerKey: urlBase64ToUint8Array(publicVapidKey)
     });
-    console.log("Push Registered...");
-    // Send Push Notification
+    console.log("Push registered...");
+    // Send push notification
     console.log("Sending Push...");
     await fetch("/subscribe", {
         method: "POST",
@@ -31,7 +31,7 @@ async function send() {
             "content-type": "application/json"
         }
     });
-    console.log("Push Sent...");
+    console.log("Push sent...");
 }
 
 function urlBase64ToUint8Array(base64String) {
